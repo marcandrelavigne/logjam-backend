@@ -1,0 +1,26 @@
+{
+  "name": "logjam-api",
+  "version": "0.0.1",
+  "author": "Marc-Andre Lavigne <info@marcandre.ca>",
+  "license": "ISC",
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "env-cmd nodemon ./bin/www",
+    "repl": "env-cmd node"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "axios": "^1.1.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "cyclic-dynamodb": "0.0.21",
+    "env-cmd": "^10.1.0",
+    "express": "^4.18.1",
+    "follow-redirects": "^1.15.2",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
+  }
+}
