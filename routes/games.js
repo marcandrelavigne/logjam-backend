@@ -1,11 +1,10 @@
-var express = require('express')
-var router = express.Router()
-var axios = require('axios');
+const express = require('express')
+const router = express.Router()
+const axios = require('axios');
 
 router.get('/', function (req, res, next) {
   let searchQuery = req.query.query
-
-  var data = JSON.stringify({
+  const data = JSON.stringify({
     "searchType": "games",
     "searchTerms": [searchQuery],
     "searchPage": 1,
@@ -35,26 +34,26 @@ router.get('/', function (req, res, next) {
       "randomizer": 0
     }
   });
-  
-  var config = {
+
+  const config = {
     method: 'post',
     url: 'https://www.howlongtobeat.com/api/search',
-    headers: { 
-      'Referer': 'https://howlongtobeat.com/', 
+    headers: {
+      'Referer': 'https://howlongtobeat.com/',
       'Content-Type': 'application/json'
     },
-    data : data
+    data: data
   };
-  
+
   axios(config)
-  .then(function (response) {
-    res.json(
-      response.data
-    )
-  })
-  .catch(function (error) {
-    console.log(error)
-  })
+    .then(function (response) {
+      res.json(
+        response.data
+      )
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
 })
 
 module.exports = router
