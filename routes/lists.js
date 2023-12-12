@@ -3,11 +3,11 @@ const router = express.Router()
 const db = require('cyclic-dynamodb')
 
 router.get('/', function (req, res, next) {
-  let uuid = req.body.uuid
-  let game = req.body.game
-  let action = req.body.action
-  let list = req.body.list
-  let range = req.body.range
+  let uuid = req.headers.uuid
+  let game = req.query.game
+  let action = req.query.action
+  let list = req.query.list
+  let range = req.query.range
   let games = db.collection('games')
 
   // Generate Game Collection
