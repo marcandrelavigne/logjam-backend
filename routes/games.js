@@ -4,7 +4,7 @@ const axios = require('axios');
 
 router.get('/', function (req, res, next) {
   let searchQuery = req.query.query
-  const data = JSON.stringify({
+  /* const data = JSON.stringify({
     "searchType": "games",
     "searchTerms": [searchQuery],
     "searchPage": 1,
@@ -33,16 +33,14 @@ router.get('/', function (req, res, next) {
       "sort": 0,
       "randomizer": 0
     }
-  });
+  }); */
 
   const config = {
-    method: 'post',
-    url: 'https://www.howlongtobeat.com/api/search',
+    method: 'get',
+    url: `https://hltb-api.vercel.app/api?name=${searchQuery}`,
     headers: {
-      'Referer': 'https://howlongtobeat.com/',
       'Content-Type': 'application/json'
-    },
-    data: data
+    }
   };
 
   axios(config)
